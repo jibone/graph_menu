@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_15_144319) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_15_150507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_15_144319) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "modifiers", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "modifier_group_id", null: false
+    t.integer "display_order", default: 0
+    t.integer "default_quantity", default: 0
+    t.float "price_override"
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_modifiers_on_item_id"
+    t.index ["modifier_group_id"], name: "index_modifiers_on_modifier_group_id"
+  end
+
   create_table "section_items", force: :cascade do |t|
     t.bigint "section_id", null: false
     t.bigint "item_id", null: false
@@ -73,6 +86,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_15_144319) do
 
   add_foreign_key "menu_sections", "menus"
   add_foreign_key "menu_sections", "sections"
+  add_foreign_key "modifiers", "items"
+  add_foreign_key "modifiers", "modifier_groups"
   add_foreign_key "section_items", "items"
   add_foreign_key "section_items", "sections"
 end

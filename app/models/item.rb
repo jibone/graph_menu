@@ -4,6 +4,7 @@
 class Item < ApplicationRecord
   has_many :section_items
   has_many :sections, through: :section_items
+  has_many :modifiers
 
   validates :identifier, :label, :price, :type, presence: true
   validates :price, numericality: true
