@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :item do
     identifier { 'item-1' }
-    type { 'Product' }
+    item_type { 'Product' }
     label { 'Sample Item' }
     description { 'This is a sample description for the item.' }
     price { 13.00 }
