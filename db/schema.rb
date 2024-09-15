@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_15_150507) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_15_153959) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "item_modifier_groups", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "modifier_group_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_modifier_groups_on_item_id"
+    t.index ["modifier_group_id"], name: "index_item_modifier_groups_on_modifier_group_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "identifier", null: false
@@ -84,6 +93,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_15_150507) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "item_modifier_groups", "items"
+  add_foreign_key "item_modifier_groups", "modifier_groups"
   add_foreign_key "menu_sections", "menus"
   add_foreign_key "menu_sections", "sections"
   add_foreign_key "modifiers", "items"
