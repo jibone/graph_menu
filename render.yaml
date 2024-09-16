@@ -2,7 +2,7 @@ databases:
   - name: graph_menu
     databaseName: graph_menu_production
     user: graph_menu
-    plan: free
+    plan: starter
     region: singapore
 
 services:
