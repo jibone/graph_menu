@@ -2,6 +2,12 @@
 
 GraphQL endpoint for menu.
 
+## Hosted
+
+The app is hosted on [https://graph-menu.onrender.com/graphiql](https://graph-menu.onrender.com/graphiql)
+
+Use the link to access the GraphiQL interface to explore the GraphQL. Checkout the 'Example Queries' section below for some sample queries.
+
 ## Prerequisites
 
 Before setting up the app locally, ensure that you have the following installed:
