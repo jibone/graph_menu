@@ -42,6 +42,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 gem 'bootsnap', require: false
 
 # graphql
+gem 'graphiql-rails'
 gem 'graphql'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
@@ -67,4 +68,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-gem "graphiql-rails", group: :development
