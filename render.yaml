@@ -1,0 +1,24 @@
+databases:
+  - name: graph_menu
+    databaseName: graph_menu_production
+    user: graph_menu
+    plan: free
+    region: singapore
+
+services:
+  - type: web
+    name: graph_menu
+    runtime: ruby
+    plan: free
+    region: singapore
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: shorty
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CUNCURRENCY
+        value: 2
