@@ -8,6 +8,8 @@ The app is hosted on [https://graph-menu.onrender.com/graphiql](https://graph-me
 
 Use the link to access the GraphiQL interface to explore the GraphQL. Checkout the 'Example Queries' section below for some sample queries.
 
+Note: App is hosted on Render.com free tier. It will sleep when there is 15 minutes of not activity. The app will take around 60 seconds to wake up. Intial load for the app might be a bit slow.
+
 ## Prerequisites
 
 Before setting up the app locally, ensure that you have the following installed:
